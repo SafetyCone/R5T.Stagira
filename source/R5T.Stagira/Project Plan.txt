@@ -1,4 +1,11 @@
 R5T.Stagira - A code-named types library for the TypedString type that allows strong-typing of strings.
 
+Built on work from R5T.NetStandard.TypedString.
+
+This code-named project was created to allow separation of the concept of a typed-string from a specific implementation. The already existing R5T.NetStandard.TypedString project purported to be *THE* definitive implementation of the typed-string concept, but that may not be the case. This project reduces the risk of taking a dependency on a typed-string library by providing a code-name (meaning the library could be switched out for any other code-named library offering typed-string functionality). The projecct does NOT reduce the risk as much as just defining an interface in a base library would, but, the whole IDEA of typing strings is to allow leveraging the static type system. So you need at least one actual concrete type.
+
+Not sure how to navigate reducing code duplication with a Typed<T> base class (which could share equality checking code, for example, with TypedInt, and TypedDouble).
+
+
 Goals
 
