@@ -17,6 +17,23 @@ namespace R5T.Stagira
     /// </remarks>
     public abstract class TypedString : IEquatable<TypedString>, IComparable<TypedString>
     {
+        #region Static
+
+        public static bool operator== (TypedString a, TypedString b)
+        {
+            var output = a.Equals_Internal(b);
+            return output;
+        }
+
+        public static bool operator !=(TypedString a, TypedString b)
+        {
+            var output = !(a == b);
+            return output;
+        }
+
+        #endregion
+
+
         public string Value { get; }
 
 
