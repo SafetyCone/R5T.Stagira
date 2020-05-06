@@ -6,7 +6,14 @@ namespace R5T.Stagira.Construction
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Experiments.SubMain();
+
+            //Program.SubMain();
+        }
+
+        static void SubMain()
+        {
+
         }
     }
 }
