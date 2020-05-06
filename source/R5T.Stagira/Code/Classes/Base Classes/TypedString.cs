@@ -52,14 +52,11 @@ namespace R5T.Stagira
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !obj.GetType().Equals(this.GetType()))
-            {
-                return false;
-            }
+            // No type-check required since (obj as TypedString).GetType() will still return the actual type.
 
             var objAsTypedString = obj as TypedString;
 
-            var isEqual = this.Equals_Value(objAsTypedString);
+            var isEqual = this.Equals(objAsTypedString);
             return isEqual;
         }
 
@@ -82,6 +79,7 @@ namespace R5T.Stagira
 
         public bool Equals(TypedString other)
         {
+            // Required type-check for derived classes using the base class TypedString.Equals(TypedString).
             if (other == null || !other.GetType().Equals(this.GetType()))
             {
                 return false;
