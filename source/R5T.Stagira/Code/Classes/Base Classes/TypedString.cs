@@ -21,8 +21,16 @@ namespace R5T.Stagira
 
         public static bool operator== (TypedString a, TypedString b)
         {
-            var output = a.Equals_Internal(b);
-            return output;
+            if(a is null)
+            {
+                var output = b is null;
+                return output;
+            }
+            else
+            {
+                var output = a.Equals(b);
+                return output;
+            }
         }
 
         public static bool operator !=(TypedString a, TypedString b)
@@ -51,11 +59,11 @@ namespace R5T.Stagira
 
             var objAsTypedString = obj as TypedString;
 
-            var isEqual = this.Equals_Internal(objAsTypedString);
+            var isEqual = this.Equals_Value(objAsTypedString);
             return isEqual;
         }
 
-        protected virtual bool Equals_Internal(TypedString other)
+        protected virtual bool Equals_Value(TypedString other)
         {
             var isEqual = this.Value.Equals(other.Value);
             return isEqual;
@@ -79,7 +87,7 @@ namespace R5T.Stagira
                 return false;
             }
 
-            var isEqual = this.Equals_Internal(other);
+            var isEqual = this.Equals_Value(other);
             return isEqual;
         }
 
