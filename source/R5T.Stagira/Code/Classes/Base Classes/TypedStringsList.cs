@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using R5T.Magyar;
+
 
 namespace R5T.Stagira
 {
-    public abstract class TypedStringsList<T>
+    public abstract class TypedStringsList<T> : TypedList<T>
         where T : TypedString
     {
-        public List<T> Values { get; } = new List<T>();
-
-
         public TypedStringsList()
         {
         }
 
         public TypedStringsList(IEnumerable<T> values)
+            : base(values)
         {
-            this.Values.AddRange(values);
         }
     }
 }
