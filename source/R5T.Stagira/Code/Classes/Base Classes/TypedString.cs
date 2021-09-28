@@ -39,6 +39,11 @@ namespace R5T.Stagira
             return output;
         }
 
+        public static implicit operator string(TypedString typedString)
+        {
+            return typedString.Value;
+        }
+
         #endregion
 
 
