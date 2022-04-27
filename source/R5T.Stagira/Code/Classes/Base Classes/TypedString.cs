@@ -19,7 +19,7 @@ namespace R5T.Stagira
     {
         #region Static
 
-        public static bool operator== (TypedString a, TypedString b)
+        public static bool operator ==(TypedString a, TypedString b)
         {
             if(a is null)
             {
@@ -31,6 +31,28 @@ namespace R5T.Stagira
                 var output = a.Equals(b);
                 return output;
             }
+        }
+
+        public static bool operator ==(TypedString a, string b)
+        {
+            if (a is null)
+            {
+                var output = b is null;
+                return output;
+            }
+            else
+            {
+                var output = a.Value == b;
+                return output;
+            }
+        }
+
+        public static bool operator !=(TypedString a, string b)
+        {
+            var equals = a == b;
+
+            var output = !equals;
+            return output;
         }
 
         public static bool operator !=(TypedString a, TypedString b)
